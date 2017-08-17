@@ -36,13 +36,18 @@ public class Utilities {
      * y capitalizar las palabras.
      *
      * @param texto En esta variable se espera recibir un texto.
-     * @return Retornara el mismo texto, pero con espacios simples y palabras capitalizadas.
+     * @return Retornara el mismo texto, pero con espacios simples y palabras
+     * capitalizadas.
      */
     public String capitalizar(String texto) {
-        String cadena;
-        int ct1;
-        texto = texto.replaceAll("  ", " ");
-        cadena = String.valueOf(texto.charAt(0)).toUpperCase();
+        String cadena = "";
+        int ct1, ct2;
+        for (ct2 = 0; ct2 < texto.length(); ct2++) {
+            texto = texto.replaceAll("  ", " ");
+        }
+        if (texto.charAt(0) != ' ') {
+            cadena = String.valueOf(texto.charAt(0)).toUpperCase();
+        }
 
         for (ct1 = 1; ct1 < texto.length(); ct1++) {
             if (texto.charAt(ct1 - 1) == ' ' && texto.charAt(ct1) != ' ') {
@@ -58,12 +63,13 @@ public class Utilities {
     /**
      * Este metodo sirve para buscar concidencias en un texto.
      *
-     * @param frase En esta variable se espera recibir una frase o una palabra para buscar en el texo ingresado.
+     * @param frase En esta variable se espera recibir una frase o una palabra
+     * para buscar en el texo ingresado.
      * @param texto En esta variable se espera recibir un texto.
      * @return Retornara el numero de veces que aparecera la frase en el texto.
      */
     public int contarCoincidencias(String frase, String texto) {
-        int cantidad = 0, niv = 0, ct1, ct2;
+        int cantidad=0, niv = 0, ct1, ct2;
         String busqueda;
         if (frase.length() < texto.length()) {
             for (ct1 = frase.length(); ct1 <= texto.length(); ct1++, niv++) {
@@ -77,7 +83,7 @@ public class Utilities {
             }
 
         } else {
-            cantidad++;
+            cantidad=0;
         }
         return cantidad;
     }
